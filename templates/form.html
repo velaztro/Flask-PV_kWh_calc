@@ -1,0 +1,184 @@
+{% extends "base.html" %} 
+
+{% block css %} 
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/form.css') }}"> 
+{% endblock %}
+
+{% block head %}<title>PV WATTS</title>{% endblock %} 
+
+{%block body %}
+<h1><span>Solar Energy Calculator</span></h1>
+<div class="container">
+  <form action="/generacion" method="POST">
+    <div class="form-group">
+      <label>System Capacity:</label>
+      <input
+        type="number"
+        min="0.05"
+        max="500000"
+        step="any"
+        class="form-control"
+        id="system_capacity"
+        name="system_capacity"
+        placeholder="Input kW"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Module Type:</label>
+      <select name="module_type" id="module_type">
+        <option value="0">Standard</option>
+        <option value="1">Premium</option>
+        <option value="2">Thin film</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>System losses<br />(Default: 14.08):</label>
+      <input
+        type="number"
+        min="-5"
+        max="99"
+        step="any"
+        class="form-control"
+        id="losses"
+        name="losses"
+        value="14.08"
+        placeholder="Enter system losses"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Array type:</label>
+      <select name="array_type" id="array_type">
+        <option value="0">Fixed - Open Rack</option>
+        <option value="1">Fixed - Roof Mounted</option>
+        <option value="2">1-Axis</option>
+        <option value="3">1-Axis Backtracking</option>
+        <option value="4">2-Axis</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Tilt angle <br />(Range: 0-90):</label>
+      <input
+        type="number"
+        min="0"
+        max="90"
+        step="any"
+        class="form-control"
+        id="tilt"
+        name="tilt"
+        placeholder="Enter tilt angle"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Azimuth angle <br />(Range: 0-359):</label>
+      <input
+        type="number"
+        min="0"
+        max="359"
+        step="any"
+        class="form-control"
+        id="azimuth"
+        name="azimuth"
+        value="180"
+        placeholder="Enter azimuth angle"
+        required
+      />
+    </div>
+
+    <div class="form-group hide">
+      <label>DC to AC ratio:</label>
+      <input
+        type="number"
+        min="0"
+        step="any"
+        class="form-control"
+        id="dc_ac_ratio"
+        name="dc_ac_ratio"
+        value="1.2"
+        placeholder="Enter DC to AC ratio"
+        required
+      />
+      <br /><label>(default = 1.2, must be positive)</label>
+    </div>
+
+    <div class="form-group hide">
+      <label>Ground coverage ratio:</label>
+      <input
+        type="number"
+        min="0"
+        max="3"
+        step="any"
+        class="form-control"
+        id="gcr"
+        name="gcr"
+        value="0.4"
+        placeholder="Enter Ground coverage ratio"
+        required
+      />
+      <br /><label>(Default = 0.4, Range: 0 - 3)</label>
+    </div>
+
+    <div class="form-group hide">
+      <label>Inverter efficiency at rated power:</label>
+      <input
+        type="number"
+        min="90"
+        max="99.5"
+        step="any"
+        class="form-control"
+        id="inv_eff"
+        name="inv_eff"
+        value="96"
+        placeholder="Enter Inverter efficiency "
+        required
+      />
+      <br /><label>(Default = 96, Range: 90 - 99.5)</label>
+    </div>
+
+    <div class="form-group">
+      <label>Latitude: </label>
+      <input
+        type="number"
+        min="-90"
+        max="90"
+        step="any"
+        class="form-control"
+        id="lat"
+        name="lat"
+        placeholder="Enter Latitude"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Longitude: </label>
+      <input
+        type="number"
+        min="-180"
+        max="180"
+        step="any"
+        class="form-control"
+        id="lon"
+        name="lon"
+        placeholder="Enter Longitude"
+        required
+      />
+    </div>
+    <p>Click the button to get your coordinates.</p>
+    <button type="button" id='get' onclick="getLocation()"> Get lat/long </button><br/><br/>
+    <button type="submit" id='sub' class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %} 
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='script/form.js') }}"></script>
+{% endblock %}

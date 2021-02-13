@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block css %} 
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/gen.css') }}"> 
+{% endblock %}
+
+{% block head %} <title>Generacion</title> {% endblock %}
+
+{% block body %}
+<h1><span>Generation</span></h1>
+{% endblock %}
+
+{% block table %}
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+    {% for total in totals %}
+        {{ total|safe }}
+    {% endfor %}
+{%  endblock  %}
+
+{% block script %}
+{% endblock %}

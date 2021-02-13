@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background: url(https://images.unsplash.com/photo-1537237858032-3ad1b513cbcc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1) no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+h1 {
+    color: ivory;
+    text-align: center;
+    margin-top: 4vh;
+}
+
+h1 span {
+    display: block;
+    font-size: 4.5vh;
+}
+
+.container {
+    display: block;
+    text-align: center;
+    height: auto;
+}
+
+form { 
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    padding: 20px;
+    width: 80vw;
+    border-radius: 10px;
+    color: rgb(32, 32, 32);
+    background-color: rgba(194, 188, 188, 0.7);
+    box-shadow: 0 0 2rem 0 rgba(65, 64, 66, 0.85);
+    -webkit-backdrop-filter: blur(10px) saturate(350%) brightness(160%);
+    backdrop-filter: blur(10px) saturate(350%) brightness(160%);
+
+}
+
+.form-group {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    align-items: center;
+    padding-bottom: 5px;
+    font-size: 2.2vh;
+    font-weight: 600;
+}
+
+input, select{
+    height: 4vh;
+    border-radius: 5px;
+    border: 1px;
+    width: 31vw;
+    padding: 5px;
+    font-size: 2.1vh;
+}
+
+.hide {
+    display:none;
+}
+
+form button {
+    display: block;
+    width: 28vw;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: none;
+    padding: 5px;
+    border-radius: 1px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.2vh;
+}
+#get {
+    height: 5vh;
+    margin-top: 10px;
+}
+#sub {
+    width: 50vw;
+    height: 5vh;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+@media screen and (min-width: 600px) {
+    h1 span {
+      font-size: 6vh;
+    }
+    form {
+        width: 40vw;
+    }
+    input, select {
+        width: 20vw;
+        height: 5vh;
+    }
+    label, p, button{
+        font-size: 1.5vw;
+    }
+    #sub {
+        width: 30vw;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    h1 span {
+      font-size: 5.5vh;
+    }
+    form {
+        width: 50vw;
+    }
+    input, select {
+        width: 20vw;
+        height: 3.5vh;
+        font-size: 2.5vw;
+    }
+    label, p, #get{
+        font-size: 2.5vw;
+    }
+    #get {
+        width: 18vw;
+    }
+    #sub {
+        width: 34vw;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    h1 span {
+      font-size: 4.2vw;
+    }
+    form {
+        width: 37vw;
+        padding: 2vw
+    }
+    input, select {
+        width: 20vw;
+        height: 2vw;
+        font-size: 1.1vw;
+    }
+    label, p{
+        font-size: 1.2vw;
+        height: 2.7vw;
+    }
+    #get {
+        width: 10vw;
+        font-size: 1.1vw;
+    }
+    #sub {
+        width: 32vw;
+    }
+}

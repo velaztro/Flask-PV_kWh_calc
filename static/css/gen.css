@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('/static/img/solar.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 5vw;
+    margin-bottom: -4vh;
+
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    empty-cells: hide;
+    border: transparent;
+    border-radius: 10px;
+    width: 60vw;
+    height: 75vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgba(194, 188, 188, 0.7);
+    box-shadow: 0 0 2rem 0 rgba(65, 64, 66, 0.85);
+    -webkit-backdrop-filter: blur(10px) saturate(350%) brightness(160%);
+    backdrop-filter: blur(10px) saturate(350%) brightness(160%);
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    font-size: 2.3vh;
+}
+
+td {
+    font-weight: 500;
+    border: 1px solid rgb(92, 162, 209);
+}
+/*
+tbody tr:nth-child(even) {
+    background-color: #e1e1e1;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f6f6f6;
+}
+
+tbody tr:nth-child(even) > :first-child {
+    background-color: #f1f1f1;
+}
+
+tbody tr:nth-child(odd) > :first-child {
+    background-color: #fafafa;
+}
+*/
+tbody tr > :first-child {
+    color: rgb(49, 109, 219);
+    font-weight: 600;
+    width: 10vw;
+}
+
+thead th {
+    color: #f1f1f1;
+    background-color: royalblue;  
+}
+
+thead th:first-child {
+    border-top-left-radius: 10px;
+}
+thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+th:nth-child(2) {
+    width: 25vw;
+}
+
+.data {
+    color: #2b4d7c;
+}
+
+.data tbody tr:last-child td {
+    color: #f1f1f1;
+    font-weight: 800;
+    font-size: 2.5vh;
+    background-color: royalblue;
+    border: transparent;
+}

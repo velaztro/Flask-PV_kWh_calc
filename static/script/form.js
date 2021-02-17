@@ -17,7 +17,7 @@ const showPosition = (position) => {
   lon_form.value = position.coords.longitude.toFixed(4);
 }
 
-function error() {
+const error = () => {
   lat_form.placeholder = "Geolocation disabled";
   lon_form.placeholder = "Geolocation disabled";
 }

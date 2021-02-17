@@ -35,7 +35,7 @@
     </div>
 
     <div class="form-group">
-      <label>System losses<br />(Default: 14.08):</label>
+      <label>System losses</label>
       <input
         type="number"
         min="-5"
@@ -45,7 +45,7 @@
         id="losses"
         name="losses"
         value="14.08"
-        placeholder="Enter system losses"
+        placeholder = "Default 14.08"
         required
       />
     </div>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="form-group">
-      <label>Tilt angle <br />(Range: 0-90):</label>
+      <label>Tilt angle</label>
       <input
         type="number"
         min="0"
@@ -71,13 +71,13 @@
         class="form-control"
         id="tilt"
         name="tilt"
-        placeholder="Enter tilt angle"
+        placeholder="Range: 0-90"
         required
       />
     </div>
 
     <div class="form-group">
-      <label>Azimuth angle <br />(Range: 0-359):</label>
+      <label>Azimuth angle</label>
       <input
         type="number"
         min="0"
@@ -87,7 +87,7 @@
         id="azimuth"
         name="azimuth"
         value="180"
-        placeholder="Enter azimuth angle"
+        placeholder="Range: 0-359, South:180"
         required
       />
     </div>
@@ -171,8 +171,10 @@
         required
       />
     </div>
-    <p>Click the button to get your coordinates.</p>
-    <button type="button" id='get' onclick="getLocation()"> Get lat/long </button><br/><br/>
+    <div>
+      <p>Click the button to get your coordinates.</p>
+      <button type="button" id='get' onclick="getLocation()"> Get lat/long </button><br/><br/>
+    </div>
     <button type="submit" id='sub' class="btn btn-primary">Submit</button>
   </form>
 </div>

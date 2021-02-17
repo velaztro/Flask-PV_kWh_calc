@@ -25,7 +25,7 @@ def form():
     table = df_new.set_axis(['Mes','Solar Radiation (kWh / m2 / day)', 'AC Energy (kWh)'], axis=1, inplace=False)
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
-    return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%10.2f' % x)])
+    return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 
 @app.route("/", methods=["GET","POST"])
 def sign_up():

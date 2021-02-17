@@ -4,8 +4,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
-    background: url(https://images.unsplash.com/photo-1537237858032-3ad1b513cbcc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1) no-repeat;
+    background: url(/static/img/form.jpeg) no-repeat;
     background-size: cover;
     background-origin: content-box;
     display: grid;
@@ -18,12 +19,11 @@ body {
 h1 {
     color: ivory;
     text-align: center;
-    margin-top: 4vh;
 }
 
 h1 span {
     display: block;
-    font-size: 4.5vh;
+    font-size: 7.5vw;
 }
 
 .container {
@@ -37,10 +37,9 @@ form {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
-    padding: 20px;
+    padding: 5%;
     width: 80vw;
-    border-radius: 10px;
+    border-radius: 2%;
     color: rgb(32, 32, 32);
     background-color: rgba(194, 188, 188, 0.7);
     box-shadow: 0 0 2rem 0 rgba(65, 64, 66, 0.85);
@@ -50,29 +49,40 @@ form {
 }
 
 .form-group {
-    padding-bottom: 20px;
+    padding-bottom: 2.5vh;
     display: flex;
     justify-content: space-between;
 }
 
 label {
-    align-items: center;
-    padding-bottom: 5px;
-    font-size: 2.2vh;
+    font-size: 3.8vw;
     font-weight: 600;
 }
 
-input, select{
-    height: 4vh;
-    border-radius: 5px;
-    border: 1px;
+input{
+    border-radius: 1vmin;
+    border: 1vmin;
     width: 31vw;
-    padding: 5px;
-    font-size: 2.1vh;
+    padding: 2%;
+    font-size: 3.5vw;
+}
+
+select {
+    border: 1vmin;
+    border-radius: 1vmin;
+    width: 31vw;
+    font-size: 3.5vw;
+    padding: 1%;
 }
 
 .hide {
     display:none;
+}
+
+p {
+    font-size: 3.2vw;
+    text-align: center;
+    font-weight: 500;
 }
 
 form button {
@@ -85,48 +95,84 @@ form button {
     border-radius: 1px;
     margin: auto;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.2vh;
+    font-size: 3.3vw;
 }
 #get {
-    height: 5vh;
+    height: 7.8vw;
     margin-top: 10px;
 }
 #sub {
     width: 50vw;
-    height: 5vh;
+    height: 8vw;
+    font-size: 3.8vw;
     background: #FF512F;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
-
-@media screen and (min-width: 600px) {
+/* iPad */
+@media only screen and (min-width: 768px) and (orientation: portrait) {
     h1 span {
-      font-size: 6vh;
+        font-size: 5.5vw;
+        margin-top: 3%;
+        margin-bottom: 4%;
+      }
+      form {
+          width: 60vw;
+      }
+      input, select {
+          width: 25vw;
+          height: 5vw;
+      }
+      input, select, label, p{
+          font-size: 2.5vw;
+      }
+      #get, #sub {
+          font-size: 2.2vw;
+          width: 15vw;
+          height: 7vw;
+      }
+      #sub {
+          height: 7vw;
+          width: 35vw;
+      }
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+    h1 span {
+      font-size: 5vw;
+      margin-top: 3%;
+      margin-bottom: 5%;
     }
     form {
-        width: 40vw;
+        width: 38vw;
     }
     input, select {
-        width: 20vw;
+        width: 15vw;
         height: 5vh;
+        margin-bottom: 1vw
     }
-    label, p, button{
-        font-size: 1.5vw;
+    input, select, label, p{
+        font-size: 1.7vw;
+    }
+    #get, #sub {
+        font-size: 1.7vw;
+        width: 11vw;
+        height: 3.7vw;
     }
     #sub {
-        width: 30vw;
+        width: 20vw;
     }
 
 }
 
-@media screen and (min-width: 768px) {
+/*@media only screen and (min-width: 1023) {
     h1 span {
       font-size: 5.5vh;
     }
     form {
-        width: 50vw;
+        width: 80vw;
     }
     input, select {
         width: 20vw;
@@ -143,15 +189,16 @@ form button {
         width: 34vw;
     }
 
-}
+}*/
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
     h1 span {
       font-size: 4.2vw;
     }
     form {
         width: 37vw;
-        padding: 2vw
+        padding: 2vw;
+        margin-bottom: 10%;
     }
     input, select {
         width: 20vw;
@@ -162,11 +209,12 @@ form button {
         font-size: 1.2vw;
         height: 2.7vw;
     }
-    #get {
-        width: 10vw;
-        font-size: 1.1vw;
+    #get, #sub {
+        font-size: 1.2vw;
+        width: 11vw;
+        height: 3vw;
     }
     #sub {
-        width: 32vw;
+        width: 20vw;
     }
 }

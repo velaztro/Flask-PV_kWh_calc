@@ -1,6 +1,6 @@
 
-//Format number of last column.
-var formatter = new Intl.NumberFormat('en-US', {
+//Format numbers of last column.
+const formatter = new Intl.NumberFormat('en-US', {
     style: 'decimal',
     maximumFractionDigits: '2'
 });

@@ -2,16 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --select-border: #777;
+    --select-focus: blue;
+    --select-arrow: var(--select-border);
 }
 
 body {
     background: url(/static/img/form.jpeg) no-repeat;
     background-size: cover;
-    background-origin: content-box;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: auto;
     min-height: 100vh;
 }
@@ -19,39 +30,36 @@ body {
 h1 {
     color: ivory;
     text-align: center;
-}
-
-h1 span {
-    display: block;
     font-size: 7.5vw;
 }
 
 .container {
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: auto;
 }
 
 form { 
-    display: inline-block;
+    /* display: inline-block;
     text-align: left;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
     padding: 5%;
     width: 80vw;
     border-radius: 2%;
-    color: rgb(32, 32, 32);
-    background-color: rgba(194, 188, 188, 0.7);
-    box-shadow: 0 0 2rem 0 rgba(65, 64, 66, 0.85);
+    color: rgb(0, 0, 0);
+    background-color: rgba(235, 224, 224, 0.466);
+    box-shadow: 0px 0px 3rem 3px rgba(55, 55, 56, 0.8);
     -webkit-backdrop-filter: blur(10px) saturate(350%) brightness(160%);
     backdrop-filter: blur(10px) saturate(350%) brightness(160%);
-
 }
 
 .form-group {
-    padding-bottom: 2.5vh;
     display: flex;
+    padding-bottom: 3vh;
     justify-content: space-between;
+    height: 45px;
 }
 
 label {
@@ -59,20 +67,21 @@ label {
     font-weight: 600;
 }
 
-input{
+input, select{
     border-radius: 1vmin;
-    border: 1vmin;
     width: 31vw;
     padding: 2%;
     font-size: 3.5vw;
+    border: 0;
+    height: 120%;
+    cursor: inherit;
+    outline: none;
 }
 
-select {
-    border: 1vmin;
-    border-radius: 1vmin;
-    width: 31vw;
-    font-size: 3.5vw;
-    padding: 1%;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .hide {
@@ -94,7 +103,6 @@ form button {
     padding: 5px;
     border-radius: 1px;
     margin: auto;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 3.3vw;
 }
 #get {
@@ -113,34 +121,35 @@ form button {
 
 /* iPad */
 @media only screen and (min-width: 768px) and (orientation: portrait) {
-    h1 span {
+    h1 {
         font-size: 5.5vw;
         margin-top: 3%;
         margin-bottom: 4%;
-      }
-      form {
+    }
+    form {
           width: 60vw;
-      }
-      input, select {
+    }
+    input, select {
           width: 25vw;
           height: 5vw;
-      }
-      input, select, label, p{
+    }
+    input, select, label, p{
           font-size: 2.5vw;
-      }
-      #get, #sub {
+    }
+    #get, #sub {
           font-size: 2.2vw;
           width: 15vw;
           height: 7vw;
-      }
-      #sub {
+    }
+    #sub {
           height: 7vw;
           width: 35vw;
-      }
+    }
 }
 
+/* Landscape Phones */
 @media only screen and (min-width: 600px) and (orientation: landscape) {
-    h1 span {
+    h1 {
       font-size: 5vw;
       margin-top: 3%;
       margin-bottom: 5%;
@@ -167,47 +176,27 @@ form button {
 
 }
 
-/*@media only screen and (min-width: 1023) {
-    h1 span {
-      font-size: 5.5vh;
-    }
-    form {
-        width: 80vw;
-    }
-    input, select {
-        width: 20vw;
-        height: 3.5vh;
-        font-size: 2.5vw;
-    }
-    label, p, #get{
-        font-size: 2.5vw;
-    }
-    #get {
-        width: 18vw;
-    }
-    #sub {
-        width: 34vw;
-    }
-
-}*/
-
+/* Laptops, Desktops */
 @media screen and (min-width: 1024px) and (orientation: landscape) {
-    h1 span {
-      font-size: 4.2vw;
+    h1 {
+      font-size: 4vw;
+      margin-top: 1%;
+      margin-bottom: 1%;
     }
     form {
-        width: 37vw;
-        padding: 2vw;
-        margin-bottom: 10%;
+        width: 33vw;
+        margin-bottom: 5%;
+    }
+    .form-group {
+        padding-bottom: 1.75vh;
     }
     input, select {
-        width: 20vw;
+        width: 17vw;
         height: 2vw;
         font-size: 1.1vw;
     }
     label, p{
         font-size: 1.2vw;
-        height: 2.7vw;
     }
     #get, #sub {
         font-size: 1.2vw;

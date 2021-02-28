@@ -1,3 +1,5 @@
+
+///Get geolocation
 let lat_form = document.getElementById("lat");
 let lon_form = document.getElementById("lon");
 
@@ -21,3 +23,4 @@ const error = () => {
   lat_form.placeholder = "Geolocation disabled";
   lon_form.placeholder = "Geolocation disabled";
 }
+///

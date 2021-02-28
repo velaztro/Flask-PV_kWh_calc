@@ -17,8 +17,9 @@
 }
 
 body {
-    background: url(/static/img/form.jpeg) no-repeat;
+    background: url("/static/img/purple.jpg") no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,8 +49,8 @@ form {
     padding: 5%;
     width: 80vw;
     border-radius: 2%;
-    color: rgb(0, 0, 0);
-    background-color: rgba(235, 224, 224, 0.466);
+    color: rgb(241, 241, 241);
+    background-color: rgba(235, 224, 224, 0.233);
     box-shadow: 0px 0px 3rem 3px rgba(55, 55, 56, 0.8);
     -webkit-backdrop-filter: blur(10px) saturate(350%) brightness(160%);
     backdrop-filter: blur(10px) saturate(350%) brightness(160%);
@@ -73,8 +74,8 @@ input, select{
     padding: 2%;
     font-size: 3.5vw;
     border: 0;
-    height: 120%;
-    cursor: inherit;
+    height: 3.5vh;
+    cursor: pointer;
     outline: none;
 }
 
@@ -101,9 +102,9 @@ form button {
     background-color: whitesmoke;
     border: none;
     padding: 5px;
-    border-radius: 1px;
     margin: auto;
     font-size: 3.3vw;
+    border-radius: 8px;
 }
 #get {
     height: 7.8vw;
@@ -119,8 +120,8 @@ form button {
 
 }
 
-/* iPad */
-@media only screen and (min-width: 768px) and (orientation: portrait) {
+/* Tablets Portrait */
+@media only screen and (min-width: 600px) and (orientation: portrait) {
     h1 {
         font-size: 5.5vw;
         margin-top: 3%;
@@ -129,20 +130,22 @@ form button {
     form {
           width: 60vw;
     }
+    .form-group {
+        padding-bottom: 2vh;
+        height: 5vh;
+    }
     input, select {
-          width: 25vw;
-          height: 5vw;
+        height: 3vh;
     }
     input, select, label, p{
-          font-size: 2.5vw;
+        font-size: 2.5vw;
     }
     #get, #sub {
-          font-size: 2.2vw;
-          width: 15vw;
-          height: 7vw;
+        font-size: 2.2vw;
+        width: 15vw;
+        height: 5vw;
     }
     #sub {
-          height: 7vw;
           width: 35vw;
     }
 }
@@ -189,6 +192,7 @@ form button {
     }
     .form-group {
         padding-bottom: 1.75vh;
+        height: 7vh;
     }
     input, select {
         width: 17vw;
@@ -201,7 +205,7 @@ form button {
     #get, #sub {
         font-size: 1.2vw;
         width: 11vw;
-        height: 3vw;
+        height: 2.5vw;
     }
     #sub {
         width: 20vw;

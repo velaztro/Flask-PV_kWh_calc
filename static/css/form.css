@@ -60,7 +60,7 @@ form {
     display: flex;
     padding-bottom: 3vh;
     justify-content: space-between;
-    height: 45px;
+    height: 6vh;
 }
 
 label {
@@ -70,7 +70,7 @@ label {
 
 input, select{
     border-radius: 1vmin;
-    width: 31vw;
+    width: 34vw;
     padding: 2%;
     font-size: 3.5vw;
     border: 0;
@@ -128,14 +128,15 @@ form button {
         margin-bottom: 4%;
     }
     form {
-          width: 60vw;
+          width: 58vw;
     }
     .form-group {
         padding-bottom: 2vh;
-        height: 5vh;
+        height: 6vh;
     }
     input, select {
         height: 3vh;
+        width: 26vw;
     }
     input, select, label, p{
         font-size: 2.5vw;
@@ -151,7 +152,7 @@ form button {
 }
 
 /* Landscape Phones */
-@media only screen and (min-width: 600px) and (orientation: landscape) {
+@media only screen and (min-width: 500px) and (orientation: landscape) {
     h1 {
       font-size: 5vw;
       margin-top: 3%;
@@ -159,6 +160,10 @@ form button {
     }
     form {
         width: 38vw;
+    }
+    .form-group {
+        padding-bottom: 2vh;
+        height: 8vh;
     }
     input, select {
         width: 15vw;
@@ -187,15 +192,15 @@ form button {
       margin-bottom: 1%;
     }
     form {
-        width: 33vw;
+        width: 28vw;
         margin-bottom: 5%;
     }
     .form-group {
         padding-bottom: 1.75vh;
-        height: 7vh;
+        height: 6.7vh;
     }
     input, select {
-        width: 17vw;
+        width: 12vw;
         height: 2vw;
         font-size: 1.1vw;
     }

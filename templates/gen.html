@@ -7,17 +7,18 @@
 {% block head %} <title>Generacion</title> {% endblock %}
 
 {% block body %}
-<h1><span>Generation</span></h1>
+    <h1><span>Generation</span></h1>
 {% endblock %}
 
 {% block table %}
     {% for table in tables %}
         {{ table|safe }}
     {% endfor %}
-    {% for total in totals %}
-        {{ total|safe }}
-    {% endfor %}
 {%  endblock  %}
+
+{% block link %}
+<a href = "/download">CLICK ME!</a>
+{% endblock %}
 
 {% block script %}
 <script type="text/javascript" src="{{ url_for('static', filename='script/gen.js') }}"></script>

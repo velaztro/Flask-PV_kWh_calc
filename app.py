@@ -3,12 +3,13 @@ import requests
 from decouple import config, AutoConfig
 import pandas as pd
 import random
+import os
 
 app = Flask(__name__)
 
 API_KEY = config('API_KEY')
 
-table = pd.DataFrame
+ran = random.random() 
 
 @app.route("/generacion", methods=["GET","POST"])
 def generacion():
@@ -29,15 +30,18 @@ def generacion():
     table = table.set_axis(['Mes','Solar Radiation (kWh / m2 / day)', 'AC Energy (kWh)'], axis=1, inplace=False)
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
+    global ran
+    table.to_excel(f"static/output{ran}.xlsx")
+
     return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 
 @app.route("/d")
 def download():
-    rand = random.Random
-    table.to_excel(f"static/output{rand}.xlsx")
-    path = f"static/output{rand}.xlsx"
-    
-    return send_file(path, as_attachment=True, cache_timeout=0)
+    global ran
+    path = f"static/output{ran}.xlsx"
+    f = send_file(path, as_attachment=True, cache_timeout=0)
+    ran = random.random()
+    return f
 
 @app.route("/", methods=["GET","POST"])
 def form():

@@ -27,12 +27,13 @@ def generacion():
     table = table.set_axis(['Mes','Solar Radiation (kWh / m2 / day)', 'AC Energy (kWh)'], axis=1, inplace=False)
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
+    table.to_excel("static/output.xlsx")
 
     return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 
 @app.route("/download")
 def download():
-    path = "output.xlsx"
+    path = "static/output.xlsx"
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 @app.route("/", methods=["GET","POST"])

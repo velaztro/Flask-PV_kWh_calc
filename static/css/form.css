@@ -17,7 +17,7 @@
 }
 
 body {
-    background: url("/static/img/purple.jpg") no-repeat;
+    background: url("/static/img/purple.webp") no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;

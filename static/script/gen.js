@@ -10,7 +10,6 @@ x = document.getElementsByTagName('td');
 for (let i = 0; i < x.length; i++) {
     i+=2;
     x[i].innerHTML = formatter.format(x[i].innerHTML);
-}
-  
+};
 
   

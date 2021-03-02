@@ -4,11 +4,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename= 'css/form.css') }}"> 
 {% endblock %}
 
-{% block head %}<title>PV WATTS</title>{% endblock %} 
+{% block head %}
+<title>PV WATTS</title>
+{% endblock %} 
 
 {%block body %}
 <h1>Solar Energy Calculator</h1>
-<div class="container" onload="load()">
+<div class="container">
   <form action="/generacion" method="POST">
     <div class="form-group">
       <label>System Capacity:</label>
@@ -183,8 +185,10 @@
   </form>
 </div>
 
-{% endblock %} 
+{% endblock %}
 
 {% block script %}
 <script type="text/javascript" src="{{ url_for('static', filename='script/form.js') }}"></script>
 {% endblock %}
+
+

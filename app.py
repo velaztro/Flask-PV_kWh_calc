@@ -1,14 +1,12 @@
-from flask import Flask, render_template, redirect, request, jsonify, send_from_directory, send_file, Response, session
-import requests
+from flask import Flask, render_template, redirect, request, jsonify, send_file, Response, session
 from decouple import config, AutoConfig
 import pandas as pd
-import random
-import os, io, xlsxwriter
+import os, io, xlsxwriter, requests
 import datetime as dt
 
 app = Flask(__name__)
 
-app.secret_key = b"_j'yXdW7.63}}b7"
+app.secret_key = config('SECRET_KEY')
 
 API_KEY = config('API_KEY')
 
@@ -34,7 +32,6 @@ def generacion():
     table = table.set_axis(['Mes','Solar Radiation (kWh / m2 / day)', 'AC Energy (kWh)'], axis=1, inplace=False)
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
-    #table.to_excel(session["table"])
     ### Creating XLSX from DataFrame
     new_file = f'output_{rightnow()}.xlsx'
     writer = pd.ExcelWriter(f'static/{new_file}', engine='xlsxwriter')
@@ -46,9 +43,13 @@ def generacion():
 
 @app.route("/d", methods=["GET","POST"])
 def download():
-    xlsx = session["table"]
+    # Get the XLSX data as a string from the session
+    xlsx = session["table"] if "table" in session else ""
+    # Create a string buffer
     buf_str = io.StringIO(xlsx)
+    # Create a bytes buffer from the string buffer
     buf_byt = io.BytesIO(buf_str.read().encode("utf-8"))
+    # Return the XLSX data as an attachment
     return send_file(xlsx,
                     as_attachment=True, 
                     attachment_filename=f"output_{rightnow()}.xlsx")

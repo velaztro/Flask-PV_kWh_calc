@@ -3,7 +3,7 @@ import requests
 from decouple import config, AutoConfig
 import pandas as pd
 import random
-import os, io
+import os, io, xlsxwriter
 import datetime as dt
 
 app = Flask(__name__)

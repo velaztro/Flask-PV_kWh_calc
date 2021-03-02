@@ -37,10 +37,10 @@ def generacion():
     #table.to_excel(session["table"])
     ### Creating XLSX from DataFrame
     new_file = f'output_{rightnow()}.xlsx'
-    writer = pd.ExcelWriter(f'static/tmp/{new_file}', engine='xlsxwriter')
+    writer = pd.ExcelWriter(f'static/{new_file}', engine='xlsxwriter')
     table.to_excel(writer, sheet_name="Solar Generation", float_format="%.4f")      
     writer.save()
-    session['table'] = f'static/tmp/{new_file}'
+    session['table'] = f'static/{new_file}'
 
     return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 

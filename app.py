@@ -13,7 +13,7 @@ app.secret_key = b"_j'yXdW7.63}}b7"
 API_KEY = config('API_KEY')
 
 def rightnow():
-    return dt.datetime.now().strftime("%m%d%y%h%m%S%f")
+    return dt.datetime.now().strftime("%h-%d, %I-%M")
 
 @app.route("/generacion", methods=["GET","POST"])
 def generacion():
@@ -35,24 +35,23 @@ def generacion():
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
     #table.to_excel(session["table"])
-
-    new_file = 'output_' + rightnow() + '.xlsx'
-    writer = pd.ExcelWriter('static/' + new_file, engine='xlsxwriter')
-    table.to_excel(writer, sheet_name="data", float_format="%.4f")      
+    ### Creating XLSX from DataFrame
+    new_file = f'output_{rightnow()}.xlsx'
+    writer = pd.ExcelWriter(f'tmp/{new_file}', engine='xlsxwriter')
+    table.to_excel(writer, sheet_name="Solar Generation", float_format="%.4f")      
     writer.save()
-    session['table'] = 'static/' + new_file
+    session['table'] = f'tmp/{new_file}'
 
     return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 
 @app.route("/d", methods=["GET","POST"])
 def download():
-    
     xlsx = session["table"]
     buf_str = io.StringIO(xlsx)
     buf_byt = io.BytesIO(buf_str.read().encode("utf-8"))
     return send_file(xlsx,
                     as_attachment=True, 
-                    attachment_filename="out.xlsx")
+                    attachment_filename=f"output_{rightnow()}.xlsx")
 
 
 @app.route("/", methods=["GET","POST"])

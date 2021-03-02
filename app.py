@@ -1,15 +1,19 @@
-from flask import Flask, render_template, redirect, request, jsonify, send_from_directory, send_file
+from flask import Flask, render_template, redirect, request, jsonify, send_from_directory, send_file, Response, session
 import requests
 from decouple import config, AutoConfig
 import pandas as pd
 import random
-import os
+import os, io
+import datetime as dt
 
 app = Flask(__name__)
 
+app.secret_key = b"_j'yXdW7.63}}b7"
+
 API_KEY = config('API_KEY')
 
-table = pd.DataFrame()
+def rightnow():
+    return dt.datetime.now().strftime("%m%d%y%h%m%S%f")
 
 @app.route("/generacion", methods=["GET","POST"])
 def generacion():
@@ -24,22 +28,32 @@ def generacion():
     totals = pd.DataFrame([[sol_a,ac_a]], columns=['solrad_monthly','ac_monthly'])
 
     ### Cleaning and transforming the data.
-    global table
     table = df.append(totals, ignore_index = True)
     table = table[['solrad_monthly', 'ac_monthly']]
     table = table.reset_index()
     table = table.set_axis(['Mes','Solar Radiation (kWh / m2 / day)', 'AC Energy (kWh)'], axis=1, inplace=False)
     table = table.replace({0: 'Enero',1: 'Febrero',2:'Marzo',3:'Abril',4:"Mayo",5:"Junio",6:"Julio",7:"Agosto",8:"Septiembre",9:"Octubre",10:'Noviembre',11:'Diciembre',12:'Annual'})
 
+    #table.to_excel(session["table"])
+
+    new_file = 'output_' + rightnow() + '.xlsx'
+    writer = pd.ExcelWriter('static/' + new_file, engine='xlsxwriter')
+    table.to_excel(writer, sheet_name="data", float_format="%.4f")      
+    writer.save()
+    session['table'] = 'static/' + new_file
+
     return render_template('gen.html', tables=[table.to_html(classes='data', index=False, float_format=lambda x: '%.2f' % x)])
 
-@app.route("/d")
+@app.route("/d", methods=["GET","POST"])
 def download():
-    ran = random.random()
-    path = f"static/output{ran}.xlsx"
-    table.to_excel(path)
-    f = send_file(path, as_attachment=True, cache_timeout=0)
-    return f
+    
+    xlsx = session["table"]
+    buf_str = io.StringIO(xlsx)
+    buf_byt = io.BytesIO(buf_str.read().encode("utf-8"))
+    return send_file(xlsx,
+                    as_attachment=True, 
+                    attachment_filename="out.xlsx")
+
 
 @app.route("/", methods=["GET","POST"])
 def form():

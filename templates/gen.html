@@ -17,7 +17,11 @@
 {%  endblock  %}
 
 {% block link %}
-    <a href="{{ url_for('download')}}">CLICK ME!</a>   
+    <a href="{{ url_for('download')}}">CLICK ME!</a>
+
+    <form action="/d" method="POST">
+        <input type="Submit" value="Download XLSX" >
+    </form>
 {% endblock %}
 
 {% block script %}

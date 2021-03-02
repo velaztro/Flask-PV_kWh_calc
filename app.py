@@ -9,8 +9,6 @@ app = Flask(__name__)
 
 API_KEY = config('API_KEY')
 
-ran = random.random() 
-
 @app.route("/generacion", methods=["GET","POST"])
 def generacion():
     ### Getting relevant data.
@@ -36,10 +34,8 @@ def generacion():
 
 @app.route("/d")
 def download():
-    global ran
     path = f"static/output{ran}.xlsx"
     f = send_file(path, as_attachment=True, cache_timeout=0)
-    ran = random.random()
     return f
 
 @app.route("/", methods=["GET","POST"])
@@ -52,5 +48,5 @@ def form():
 
 
 if __name__ == "__main__":
-    app.run(threaded=True)
+    app.run(debug=True, threaded=True)
 

@@ -24,3 +24,7 @@ const error = () => {
   lon_form.placeholder = "Geolocation disabled";
 }
 ///
+
+function load() {
+  console.log(Math.random());
+};

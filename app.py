@@ -17,6 +17,7 @@ def rightnow():
 def generacion():
     ### Getting relevant data.
     x = request.form.to_dict(flat=False)
+    print(x)
     URL = 'https://developer.nrel.gov/api/pvwatts/v6.json?api_key=' + API_KEY
     r = requests.get(url=URL, params=x)
     data = r.json()

@@ -32,12 +32,12 @@ h1 {
     font-size: 7.5vw;
 }
 
-.container {
+/*.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
-}
+}*/
 
 form { 
     /* display: inline-block;
@@ -47,7 +47,7 @@ form {
     padding: 5%;
     width: 80vw;
     border-radius: 2%;
-    color: rgb(241, 241, 241);
+    color: #F2F4EE;
     background-color: rgba(235, 224, 224, 0.233);
     box-shadow: 0px 0px 3rem 3px rgba(55, 55, 56, 0.8);
     -webkit-backdrop-filter: blur(10px) saturate(350%) brightness(160%);
@@ -56,9 +56,18 @@ form {
 
 .form-group {
     display: flex;
+    flex-direction: column;
     padding-bottom: 3vh;
     justify-content: space-between;
-    height: 6vh;
+    height: 8vh;
+}
+
+.float {
+    border: 1px solid white;
+}
+.float input {
+    border: none;
+    outline: 0;
 }
 
 label {
@@ -75,6 +84,7 @@ input, select{
     height: 3.5vh;
     cursor: pointer;
     outline: none;
+    background-color: #F2F4EE;
 }
 
 input::-webkit-outer-spin-button,
@@ -97,7 +107,6 @@ form button {
     display: block;
     width: 28vw;
     cursor: pointer;
-    background-color: whitesmoke;
     border: none;
     padding: 5px;
     margin: auto;
@@ -112,9 +121,10 @@ form button {
     width: 50vw;
     height: 8vw;
     font-size: 3.8vw;
-    background: #FF512F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #30335C;
+    background: #E88F82;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #E88F82, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #E88F82, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 

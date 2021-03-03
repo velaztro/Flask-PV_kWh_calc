@@ -12,8 +12,8 @@
 <h1>Solar Energy Calculator</h1>
 <div class="container">
   <form action="/generacion" method="POST">
-    <div class="form-group">
-      <label>System Capacity:</label>
+    <div class="form-group float">
+      <label for="system_capacity">System Capacity:</label>
       <input
         type="number"
         min="0.05"
@@ -149,6 +149,18 @@
     </div>
 
     <div class="form-group">
+      <label>Address</label>
+      <input 
+        type="text"
+        id="address"
+        name="address"
+        class="form-control"
+        placeholder="Enter Address"
+        required
+      />
+    </div>
+
+    <!--<div class="form-group hide">
       <label>Latitude: </label>
       <input
         type="number"
@@ -163,7 +175,7 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="form-group hide">
       <label>Longitude: </label>
       <input
         type="number"
@@ -176,10 +188,10 @@
         placeholder="Enter Longitude"
         required
       />
-    </div>
+    </div>-->
     <div>
-      <p>Click the button to get your coordinates.</p>
-      <button type="button" id='get' onclick="getLocation()"> Get lat/long </button><br/><br/>
+      <p class="hide">Click the button to get your coordinates.</p>
+      <button class="hide" type="button" id='get' onclick="getLocation()"> Get lat/long </button><br/><br/>
     </div>
     <button type="submit" id='sub' class="btn btn-primary">Submit</button>
   </form>

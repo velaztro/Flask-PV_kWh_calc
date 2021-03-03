@@ -14,6 +14,7 @@ The data are the kWh that a Photovoltaic System will generate based on the NREL 
   <li>Responsive Design</li>
   <li>Using GET and POST methods for the API and the data</li>
   <li>Cleaning and preparing the recieved data from the API</li>
+  <li>User can download table as XLSX</li>
   <li>HTML</li>
   <li>CSS</li>
   <li>JS</li>

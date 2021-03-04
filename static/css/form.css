@@ -3,14 +3,12 @@
 *::after {
     margin: 0;
     padding: 0;
-    font-family: Helvetica;
+    font-family: 'Noto Sans JP', sans-serif;
     box-sizing: border-box;
 }
 
 :root {
-    --select-border: #777;
-    --select-focus: blue;
-    --select-arrow: var(--select-border);
+    --border: #8875b9;
 }
 
 body {
@@ -32,20 +30,9 @@ h1 {
     font-size: 7.5vw;
 }
 
-/*.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}*/
-
-form { 
-    /* display: inline-block;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto; */
+form {
     padding: 5%;
-    width: 80vw;
+    width: 70vw;
     border-radius: 2%;
     color: #F2F4EE;
     background-color: rgba(235, 224, 224, 0.233);
@@ -57,36 +44,42 @@ form {
 .form-group {
     display: flex;
     flex-direction: column;
-    padding-bottom: 3vh;
     justify-content: space-between;
-    height: 8vh;
+    height: 6.5vh;
+    margin-bottom: 5%;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 4px;
+    outline: yellow;
 }
 
-.float {
-    border: 1px solid white;
-}
-.float input {
-    border: none;
-    outline: 0;
+.form-group label {
+    font-size: 3vw;
+    font-weight: 700;
+    margin-top: 3px;
+    padding-left: 3px;
+    color: var(--border);
 }
 
-label {
-    font-size: 3.8vw;
-    font-weight: 600;
+.form-group:focus-within {
+    border-bottom: 8px solid var(--border);
 }
 
 input, select{
-    border-radius: 1vmin;
-    width: 34vw;
-    padding: 2%;
-    font-size: 3.5vw;
+    width: 100%;
+    height: 100%;
+    font-size: 3.4vw;
     border: 0;
-    height: 3.5vh;
+    padding-left: 6px;
     cursor: pointer;
     outline: none;
-    background-color: #F2F4EE;
+    background-color: transparent;
 }
-
+/*
+::-webkit-input-placeholder{color:transparent;}
+::-moz-placeholder {color:transparent;}
+:-ms-input-placeholder {color:transparent;}
+*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -97,130 +90,164 @@ input::-webkit-inner-spin-button {
     display:none;
 }
 
-p {
-    font-size: 3.2vw;
-    text-align: center;
-    font-weight: 500;
-}
-
-form button {
-    display: block;
-    width: 28vw;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    margin: auto;
-    font-size: 3.3vw;
-    border-radius: 8px;
-}
-#get {
-    height: 7.8vw;
-    margin-top: 10px;
-}
 #sub {
-    width: 50vw;
-    height: 8vw;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 9vw;
+    min-height: 30px;
     font-size: 3.8vw;
-    color: #30335C;
-    background: #E88F82;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom right, #E88F82, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom right, #E88F82, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    color: #ffffff;
+    background: #a26fff;  /* fallback for old browsers */
+    border: 2px solid rgb(143, 63, 248);
+    cursor: pointer;
+    outline: 0;
+}
+#sub:hover {
+    border: 2px solid rgb(216, 154, 245);
+    background-color: #5a34bd;
+    transition: all 0.2s ease 0s;
+    outline: 0;
 }
 
 /* Tablets Portrait */
-@media only screen and (min-width: 600px) and (orientation: portrait) {
+@media only screen and (min-width: 500px) and (orientation: portrait) {
     h1 {
-        font-size: 5.5vw;
-        margin-top: 3%;
-        margin-bottom: 4%;
+        font-size: 6vw;
+        margin-top: 1%;
+        margin-bottom: 1%;
     }
     form {
-          width: 58vw;
+        width: 50vw;
+        margin-bottom: 5%;
     }
     .form-group {
-        padding-bottom: 2vh;
-        height: 6vh;
+        height: 6.3vh;
+        margin-bottom: 7%;
+    }
+    .form-group:focus-within,.form-group:hover {
+        border-bottom: 15px solid var(--border);
+        transition: all 0.1s ease-in-out 0s;
+    }
+    .form-group label {
+        font-size: 2.4vw;
+        padding-left: 2%;
+        margin-top: 1px;
+        background-color: transparent;
     }
     input, select {
-        height: 3vh;
-        width: 26vw;
-    }
-    input, select, label, p{
-        font-size: 2.5vw;
-    }
-    #get, #sub {
-        font-size: 2.2vw;
-        width: 15vw;
-        height: 5vw;
+        width: 100%;
+        font-size: 2.9vw;
+        padding-left: 3.5%;
+        background-color: transparent;
+        padding-bottom: 28px;
     }
     #sub {
-          width: 35vw;
+        font-size: 3vw;
+        height: 6vw;
+        min-height: 50px;
+        width: 100%;
+        border-radius: 1px;
+        text-align: center;
     }
 }
 
 /* Landscape Phones */
 @media only screen and (min-width: 500px) and (orientation: landscape) {
     h1 {
-      font-size: 5vw;
-      margin-top: 3%;
-      margin-bottom: 5%;
+      font-size: 4vw;
+      margin-top: 2%;
+      margin-bottom: 2%;
     }
     form {
-        width: 38vw;
+        width: 35vw;
+        margin-bottom: 4%;
     }
     .form-group {
-        padding-bottom: 2vh;
         height: 8vh;
+        min-height: 40px;
+        margin-bottom: 20px;
+    }
+    .form-group:focus-within,.form-group:hover {
+        border-bottom: 9px solid var(--border);
+        transition: all 0.1s ease-in-out 0s;
+    }
+    .form-group label {
+        font-size: 1.2vw;
+        padding-left: 2%;
+        margin-top: 1px;
+        background-color: transparent;
     }
     input, select {
-        width: 15vw;
-        height: 5vh;
-        margin-bottom: 1vw
-    }
-    input, select, label, p{
+        width: 100%;
+        height: 7vw;
         font-size: 1.7vw;
+        padding-left: 3.5%;
+        background-color: transparent;
+    }
+    select {
+        padding-left: 2%;
+        padding-bottom: 1%;
     }
     #get, #sub {
         font-size: 1.7vw;
         width: 11vw;
         height: 3.7vw;
+        min-height: 35px;
     }
     #sub {
-        width: 20vw;
+        width: 100%;
+        border-radius: 1px;
+        text-align: center;
     }
 
 }
 
 /* Laptops, Desktops */
-@media screen and (min-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 1023px) and (orientation: landscape) {
     h1 {
       font-size: 4vw;
       margin-top: 1%;
       margin-bottom: 1%;
     }
     form {
-        width: 28vw;
+        width: 26vw;
         margin-bottom: 5%;
     }
     .form-group {
-        padding-bottom: 1.75vh;
-        height: 6.7vh;
+        height: 7.3vh;
+        min-height: 50px;
+        margin-bottom: 2.3vh;
+    }
+    .form-group:focus-within,.form-group:hover {
+        border-bottom: 12px solid var(--border);
+        transition: all 0.1s ease-in-out 0s;
+    }
+    .form-group label {
+        font-size: 1.1vw;
+        padding-left: 2%;
+        margin-top: 1%;
+        background-color: transparent;
     }
     input, select {
-        width: 12vw;
-        height: 2vw;
-        font-size: 1.1vw;
-    }
-    label, p{
-        font-size: 1.2vw;
+        width: 100%;
+        height: 100%;
+        font-size: 1.5vw;
+        border: 0;
+        padding-left: 12px;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        padding-bottom: 40px;
     }
     #get, #sub {
-        font-size: 1.2vw;
+        font-size: 1.3vw;
         width: 11vw;
-        height: 2.5vw;
+        height: 3vw;
     }
     #sub {
-        width: 20vw;
+        width: 100%;
+        border-radius: 1px;
+        text-align: center;
     }
 }
